@@ -1,5 +1,9 @@
 # PHPLOC
 
+**Warning**: This is a fork of [phploc/phploc](https://github.com/sebastianbergmann/phploc) not intended for use in real projects. We've forked the package to make [`stefanzweifel/laravel-stats`](https://github.com/stefanzweifel/laravel-stats) backwards compatible with Laravel 6. The only change we've made is support both `^2.0` and `^3.0` of `sebastian/version`.
+
+---
+
 `phploc` is a tool for quickly measuring the size and analyzing the structure of a PHP project.
 
 ## Installation
