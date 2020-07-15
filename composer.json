@@ -1,7 +1,7 @@
 {
-    "name": "phploc/phploc",
+    "name": "stefanzweifel/laravel-stats-phploc",
     "description": "A tool for quickly measuring the size of a PHP project.",
-    "homepage": "https://github.com/sebastianbergmann/phploc",
+    "homepage": "https://github.com/stefanzweifel/phploc",
     "license": "BSD-3-Clause",
     "authors": [
         {
@@ -11,7 +11,7 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/sebastianbergmann/phploc/issues"
+        "issues": "https://github.com/stefanzweifel/phploc/issues"
     },
     "config": {
         "platform": {
