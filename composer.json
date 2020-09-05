@@ -1,6 +1,6 @@
 {
     "name": "stefanzweifel/laravel-stats-phploc",
-    "description": "A tool for quickly measuring the size of a PHP project.",
+    "description": "A tool for quickly measuring the size of a PHP project. (Don't use this fork in your production apps)",
     "homepage": "https://github.com/stefanzweifel/phploc",
     "license": "BSD-3-Clause",
     "authors": [
