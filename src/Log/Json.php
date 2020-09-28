@@ -9,17 +9,14 @@
  */
 namespace SebastianBergmann\PHPLOC\Log;
 
-/**
- * An JSON ResultPrinter for the TextUI.
- */
-class Json
+use const JSON_PRETTY_PRINT;
+use function array_merge;
+use function file_put_contents;
+use function json_encode;
+
+final class Json
 {
-    /**
-     * Prints a result set.
-     *
-     * @param string $filename
-     */
-    public function printResult($filename, array $count): void
+    public function printResult(string $filename, array $count): void
     {
         $directories = [];
 
@@ -32,11 +29,11 @@ class Json
 
         unset($count['directories'], $count['files']);
 
-        $report = \array_merge($directories, $count);
+        $report = array_merge($directories, $count);
 
-        \file_put_contents(
+        file_put_contents(
             $filename,
-            \json_encode($report, \JSON_PRETTY_PRINT)
+            json_encode($report, JSON_PRETTY_PRINT)
         );
     }
 }

@@ -9,16 +9,14 @@
  */
 namespace SebastianBergmann\PHPLOC\Log;
 
-/**
- * A CSV ResultPrinter for the TextUI.
- */
-class Csv
+use const PHP_EOL;
+use function array_values;
+use function file_put_contents;
+use function implode;
+use InvalidArgumentException;
+
+final class Csv
 {
-    /**
-     * Mapping between internal and human-readable metric names
-     *
-     * @var array
-     */
     private $colmap = [
         'directories'                 => 'Directories',
         'files'                       => 'Files',
@@ -73,33 +71,23 @@ class Csv
         'testMethods'                 => 'Test Methods',
     ];
 
-    /**
-     * Prints a result set.
-     *
-     * @param string $filename
-     */
-    public function printResult($filename, array $count): void
+    public function printResult(string $filename, array $count): void
     {
-        \file_put_contents(
+        file_put_contents(
             $filename,
             $this->getKeysLine($count) . $this->getValuesLine($count)
         );
     }
 
-    /**
-     * @return string
-     */
-    protected function getKeysLine(array $count)
+    private function getKeysLine(array $count): string
     {
-        return \implode(',', \array_values($this->colmap)) . \PHP_EOL;
+        return implode(',', array_values($this->colmap)) . PHP_EOL;
     }
 
     /**
-     * @throws \InvalidArgumentException
-     *
-     * @return string
+     * @throws InvalidArgumentException
      */
-    protected function getValuesLine(array $count)
+    private function getValuesLine(array $count): string
     {
         $values = [];
 
@@ -107,10 +95,10 @@ class Csv
             if (isset($count[$key])) {
                 $values[] = $count[$key];
             } else {
-                throw new \InvalidArgumentException('Attempted to print row with missing keys');
+                throw new InvalidArgumentException('Attempted to print row with missing keys');
             }
         }
 
-        return '"' . \implode('","', $values) . '"' . \PHP_EOL;
+        return '"' . implode('","', $values) . '"' . PHP_EOL;
     }
 }
