@@ -204,9 +204,9 @@ final class Analyser
 
                     $this->collector->incrementComplexity();
                 } elseif ($token === '{') {
-                    if ($currentBlock == T_CLASS) {
+                    if ($currentBlock === T_CLASS) {
                         $block = $className;
-                    } elseif ($currentBlock == T_FUNCTION) {
+                    } elseif ($currentBlock === T_FUNCTION) {
                         $block = $functionName;
                     } else {
                         $block = false;
@@ -299,7 +299,7 @@ final class Analyser
 
                     $next = $this->getNextNonWhitespaceTokenPos($tokens, $i);
 
-                    if (!is_array($tokens[$next]) && $tokens[$next] === '&') {
+                    if ($tokens[$next] === '&' || (is_array($tokens[$next]) && $tokens[$next][1] === '&')) {
                         $next = $this->getNextNonWhitespaceTokenPos($tokens, $next);
                     }
 
@@ -424,8 +424,8 @@ final class Analyser
                 case T_CONST:
                     $possibleScopeToken = $this->getPreviousNonWhitespaceNonCommentTokenPos($tokens, $i);
 
-                    if ($possibleScopeToken !== false
-                        && in_array($tokens[$possibleScopeToken][0], [T_PRIVATE, T_PROTECTED], true)
+                    if ($possibleScopeToken !== false &&
+                        in_array($tokens[$possibleScopeToken][0], [T_PRIVATE, T_PROTECTED], true)
                     ) {
                         $this->collector->incrementNonPublicClassConstants();
                     } else {
@@ -515,7 +515,7 @@ final class Analyser
         if (isset($tokens[$i + 2][1])) {
             $namespace = $tokens[$i + 2][1];
 
-            for ($j = $i + 3;; $j += 2) {
+            for ($j = $i + 3; ; $j += 2) {
                 if (isset($tokens[$j]) && $tokens[$j][0] === T_NS_SEPARATOR) {
                     $namespace .= '\\' . $tokens[$j + 1][1];
                 } else {
@@ -701,8 +701,8 @@ final class Analyser
     {
         $n = $this->getPreviousNonWhitespaceTokenPos($tokens, $i);
 
-        return !isset($tokens[$n])
-            || !is_array($tokens[$n])
-            || !in_array($tokens[$n][0], [T_DOUBLE_COLON, T_NEW], true);
+        return !isset($tokens[$n]) ||
+            !is_array($tokens[$n]) ||
+            !in_array($tokens[$n][0], [T_DOUBLE_COLON, T_NEW], true);
     }
 }

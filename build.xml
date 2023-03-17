@@ -20,7 +20,6 @@
             <arg value="--no-interaction"/>
             <arg value="--no-progress"/>
             <arg value="--no-ansi"/>
-            <arg value="--no-suggest"/>
         </exec>
     </target>
 
@@ -28,10 +27,6 @@
         <exec executable="phive">
             <arg value="--no-progress"/>
             <arg value="update"/>
-        </exec>
-
-        <exec executable="${basedir}/tools/composer">
-            <arg value="self-update"/>
         </exec>
     </target>
 
@@ -98,6 +93,8 @@
         <exec executable="${basedir}/tools/phpab">
             <arg value="--all" />
             <arg value="--phar" />
+            <arg value="--hash" />
+            <arg value="SHA-512" />
             <arg value="--output" />
             <arg path="${basedir}/build/phploc-${version}.phar" />
             <arg value="--template" />

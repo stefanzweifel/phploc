@@ -1,3 +1,5 @@
+**This project is no longer maintained and its repository is only kept for archival purposes.**
+
 # PHPLOC
 
 **Warning**: This is a fork of [phploc/phploc](https://github.com/sebastianbergmann/phploc) not intended for use in real projects. We've forked the package to make [`stefanzweifel/laravel-stats`](https://github.com/stefanzweifel/laravel-stats) backwards compatible with Laravel 6. The only change we've made is support both `^2.0` and `^3.0` of `sebastian/version`.
@@ -16,7 +18,13 @@ $ wget https://phar.phpunit.de/phploc.phar
 $ php phploc.phar --version
 ```
 
-Using [Phive](https://phar.io/) is the recommended way for managing the tool dependencies of your project.
+Using [Phive](https://phar.io/) is the recommended way for managing the tool dependencies of your project:
+
+```bash
+$ phive install phploc
+
+$ ./tools/phploc --version
+```
 
 **[It is not recommended to use Composer to download and install this tool.](https://twitter.com/s_bergmann/status/999635212723212288)**
 
