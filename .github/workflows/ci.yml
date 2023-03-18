@@ -42,8 +42,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php-version: [7.3, 7.4, 8.0, 8.1, 8.2]
-        sebastian_version: [2.*, 3.*, 4.*]
+        php-version: [8.0, 8.1, 8.2]
+        sebastian_version: [l3.*, 4.*]
 #        include:
 #          - php: 7.3
 #            sebastian_version: 2.*

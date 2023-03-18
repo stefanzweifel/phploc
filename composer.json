@@ -14,14 +14,11 @@
         "issues": "https://github.com/stefanzweifel/phploc/issues"
     },
     "config": {
-        "platform": {
-            "php": "8.1.0"
-        },
         "optimize-autoloader": true,
         "sort-packages": true
     },
     "require": {
-        "php": ">=7.3",
+        "php": "^8.0",
         "ext-dom": "*",
         "ext-json": "*",
         "sebastian/cli-parser": "^1.0",
