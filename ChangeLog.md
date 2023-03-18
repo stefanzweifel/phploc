@@ -2,6 +2,12 @@
 
 All notable changes in PHPLOC are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## 8.0.1 - 2023-03-18
+
+### Fixed
+
+- Fixed compatibility with phpunit and laravel-stats
+
 ## 8.0.0 - 2023-03-18
 
 ### Changed
