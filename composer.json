@@ -8,24 +8,25 @@
             "name": "Sebastian Bergmann",
             "email": "sebastian@phpunit.de",
             "role": "lead"
+        },
+        {
+            "name": "Stefan Zweifel",
+            "email": "stefan@stefanzweifel.dev"
         }
     ],
     "support": {
         "issues": "https://github.com/stefanzweifel/phploc/issues"
     },
     "config": {
-        "platform": {
-            "php": "7.3.0"
-        },
         "optimize-autoloader": true,
         "sort-packages": true
     },
     "require": {
-        "php": ">=7.3",
+        "php": "^8.0",
         "ext-dom": "*",
         "ext-json": "*",
         "sebastian/cli-parser": "^1.0",
-        "sebastian/version": "^2.0 || ^3.0",
+        "sebastian/version": "^2.0 || ^3.0 || ^4.0",
         "phpunit/php-file-iterator": "^3.0"
     },
     "autoload": {
