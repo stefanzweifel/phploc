@@ -86,9 +86,20 @@ final class Application
 
     private function printVersion(): void
     {
+        $versionInstance = (new Version(self::VERSION, dirname(__DIR__)));
+        $versionString = '';
+
+        if (method_exists($versionInstance, 'asString')) {
+            $versionString = $versionInstance->asString();
+        }
+
+        if (method_exists($versionInstance, 'getVersion')) {
+            $versionString = $versionInstance->getVersion();
+        }
+
         printf(
             'phploc %s by Sebastian Bergmann.' . PHP_EOL,
-            (new Version(self::VERSION, dirname(__DIR__)))->getVersion()
+            $versionString
         );
     }
 
