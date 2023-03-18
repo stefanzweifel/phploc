@@ -35,14 +35,14 @@ jobs:
         run: ./tools/psalm --config=.psalm/config.xml --no-progress --shepherd --show-info=false --stats
 
   tests:
-    name: Tests
+    name: P${{ matrix.php }} - version ${{ matrix.sebastian_version }}
 
     runs-on: ubuntu-latest
 
     strategy:
       fail-fast: true
       matrix:
-        php-version: [8.0, 8.1, 8.2]
+        php: [8.0, 8.1, 8.2]
         sebastian_version: [3.*, 4.*]
         exclude:
           - php: 8.2
@@ -59,15 +59,15 @@ jobs:
       - name: Install PHP with extensions
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php-version }}
+          php-version: ${{ matrix.php }}
           coverage: pcov
 
       - name: Cache dependencies installed with composer
         uses: actions/cache@v1
         with:
           path: ~/.composer/cache
-          key: php${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.json') }}
-          restore-keys: php${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
+          key: php${{ matrix.php }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.json') }}
+          restore-keys: php${{ matrix.php }}-composer-${{ matrix.dependencies }}-
 
       - name: Install dependencies with composer
         run: |
