@@ -87,7 +87,7 @@ final class Application
     private function printVersion(): void
     {
         $versionInstance = (new Version(self::VERSION, dirname(__DIR__)));
-        $versionString = '';
+        $versionString   = '';
 
         if (method_exists($versionInstance, 'asString')) {
             $versionString = $versionInstance->asString();
