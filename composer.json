@@ -8,6 +8,10 @@
             "name": "Sebastian Bergmann",
             "email": "sebastian@phpunit.de",
             "role": "lead"
+        },
+        {
+            "name": "Stefan Zweifel",
+            "email": "stefan@stefanzweifel.dev"
         }
     ],
     "support": {
