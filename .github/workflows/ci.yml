@@ -1,43 +1,43 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 
 on:
-  - "pull_request"
-  - "push"
+  - pull_request
+  - push
 
-name: "CI"
+name: CI
 
 jobs:
   coding-guidelines:
-    name: "Coding Guidelines"
+    name: Coding Guidelines
 
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v2"
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - name: "Run friendsofphp/php-cs-fixer"
-        run: "./tools/php-cs-fixer fix --dry-run --show-progress=dots --using-cache=no --verbose"
+      - name: Run friendsofphp/php-cs-fixer
+        run: ./tools/php-cs-fixer fix --dry-run --show-progress=dots --using-cache=no --verbose
 
   type-checker:
-    name: "Type Checker"
+    name: Type Checker
 
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v2"
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - name: "Update dependencies with composer"
-        run: "./tools/composer update --no-ansi --no-interaction --no-progress"
+      - name: Update dependencies with composer
+        run: ./tools/composer update --no-ansi --no-interaction --no-progress
 
-      - name: "Run vimeo/psalm"
-        run: "./tools/psalm --config=.psalm/config.xml --no-progress --shepherd --show-info=false --stats"
+      - name: Run vimeo/psalm
+        run: ./tools/psalm --config=.psalm/config.xml --no-progress --shepherd --show-info=false --stats
 
   tests:
-    name: "Tests"
+    name: Tests
 
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -49,24 +49,24 @@ jobs:
           - "8.2"
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v3"
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@v2"
+      - name: Install PHP with extensions
+        uses: shivammathur/setup-php@v2
         with:
-          php-version: "${{ matrix.php-version }}"
-          coverage: "pcov"
+          php-version: ${{ matrix.php-version }}
+          coverage: pcov
 
-      - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v1"
+      - name: Cache dependencies installed with composer
+        uses: actions/cache@v1
         with:
-          path: "~/.composer/cache"
-          key: "php${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.json') }}"
-          restore-keys: "php${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+          path: ~/.composer/cache
+          key: php${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.json') }}
+          restore-keys: php${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
 
       - name: "Install dependencies with composer"
         run: "./tools/composer update --no-ansi --no-interaction --no-progress"
 
-      - name: "Run tests with phpunit/phpunit"
-        run: "./tools/phpunit --coverage-clover=coverage.xml"
+      - name: Run tests with phpunit/phpunit
+        run: ./tools/phpunit --coverage-text --coverage-clover=coverage.xml
