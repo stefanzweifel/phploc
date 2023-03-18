@@ -1,8 +1,7 @@
-**This project is no longer maintained and its repository is only kept for archival purposes.**
-
 # PHPLOC
 
-**Warning**: This is a fork of [phploc/phploc](https://github.com/sebastianbergmann/phploc) not intended for use in real projects. We've forked the package to make [`stefanzweifel/laravel-stats`](https://github.com/stefanzweifel/laravel-stats) backwards compatible with Laravel 6. The only change we've made is support both `^2.0` and `^3.0` of `sebastian/version`.
+> **Warning**   
+> This is a fork of [phploc/phploc](https://github.com/sebastianbergmann/phploc) not intended for use in real projects. I've forked the package to make [`wnx/laravel-stats`](https://github.com/stefanzweifel/laravel-stats) compatible with different Laravel version. (I made sure multiple versions of `sebastian/version` are supported.)
 
 ---
 
