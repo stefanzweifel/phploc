@@ -40,8 +40,8 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: true
       matrix:
-        fail-fast: true
         php-version: [7.3, 7.4, 8.0, 8.1, 8.2]
         sebastian_version: [2.*, 3.*, 4.*]
 #        include:
