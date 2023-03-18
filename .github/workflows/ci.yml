@@ -82,7 +82,7 @@ jobs:
 
       - name: Install dependencies with composer
         run: |
-          ./tools/composer require sebastian/version:${{ matrix.version }} --no-interaction --no-update
+          ./tools/composer require sebastian/version:${{ matrix.sebastian_version }} --no-interaction --no-update
           ./tools/composer update --no-ansi --no-interaction --no-progress
 
       - name: Run tests with phpunit/phpunit
