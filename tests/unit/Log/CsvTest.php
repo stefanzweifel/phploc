@@ -24,7 +24,7 @@ use PHPUnit\Framework\TestCase;
 final class CsvTest extends TestCase
 {
     /**
-     * @var \SebastianBergmann\PHPLOC\Log\Csv
+     * @var Log\Csv
      */
     private $single;
 
@@ -84,7 +84,7 @@ final class CsvTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->single = new \SebastianBergmann\PHPLOC\Log\Csv;
+        $this->single = new Log\Csv;
     }
 
     public function testPrintedResultContainsHeadings(): void
