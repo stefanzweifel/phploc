@@ -2,6 +2,10 @@
 
 All notable changes in PHPLOC are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## 8.0.4 - 2024-11-13
+
+- Test project on PHP 8.3 and PHP 8.4
+
 ## 8.0.3 - 2024-06-19
 
 ### Fixed
