@@ -2,6 +2,12 @@
 
 All notable changes in PHPLOC are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## 8.0.5 - 2025-10-12
+
+### Fixed
+
+- Fix compatibility with PHPUnit and wnx/laravel-stats
+
 ## 8.0.4 - 2024-11-13
 
 - Test project on PHP 8.3 and PHP 8.4
