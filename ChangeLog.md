@@ -2,6 +2,10 @@
 
 All notable changes in PHPLOC are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## 8.0.7 - 2026-07-29
+
+Fix compatibility issues with other packages
+
 ## 8.0.6 - 2025-10-12
 
 ### Fixed
